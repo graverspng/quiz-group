@@ -1,6 +1,6 @@
 CREATE DATABASE group_quiz;
 
-CREATE TABLE `user_id` (
+CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -30,12 +30,6 @@ CREATE TABLE options (
     option_text VARCHAR(255) NOT NULL,
     is_correct BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (question_id) REFERENCES questions(question_id) ON DELETE CASCADE
-);
-CREATE TABLE users (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
 );
 CREATE TABLE answers (
     answer_id INT PRIMARY KEY AUTO_INCREMENT,
