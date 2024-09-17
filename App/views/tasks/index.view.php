@@ -15,31 +15,51 @@
     <div class="container quiz-container">
         <h2>Quiz Title 1</h2>
         <p>Description or content for Quiz 1.</p>
-
+        
+        <form action="/leader-board">
+        <button>Leaderboard</button>
+        </form>
     </div>
 
 
     <div class="container quiz-container">
         <h2>Quiz Title 2</h2>
         <p>Description or content for Quiz 2.</p>
+
+        <form action="/leader-board">
+        <button>Leaderboard</button>
+        </form>
+
     </div>
 
 
     <div class="container quiz-container">
         <h2>Quiz Title 3</h2>
         <p>Description or content for Quiz 3.</p>
+
+        <form action="/leader-board">
+        <button>Leaderboard</button>
+        </form>
     </div>
 
 
     <div class="container quiz-container">
         <h2>Quiz Title 4</h2>
         <p>Description or content for Quiz 4.</p>
+
+        <form action="/leader-board">
+        <button>Leaderboard</button>
+        </form>
     </div>
 
 
     <div class="container quiz-container">
         <h2>Quiz Title 5</h2>
         <p>Description or content for Quiz 5.</p>
+
+        <form action="/leader-board">
+        <button>Leaderboard</button>
+        </form>
     </div>
 </div>
 
