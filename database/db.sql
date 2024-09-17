@@ -20,7 +20,7 @@ CREATE TABLE questions (
     question_id INT PRIMARY KEY AUTO_INCREMENT,
     quiz_id INT,
     text TEXT NOT NULL,
-    question_type VARCHAR(50) NOT NULL, -- Example: 'MCQ', 'True/False', etc.
+    question_type VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
 );
@@ -35,7 +35,7 @@ CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL -- Password should be hashed
+    password VARCHAR(255) NOT NULL
 );
 CREATE TABLE answers (
     answer_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -53,7 +53,7 @@ CREATE TABLE quiz_results (
     result_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     quiz_id INT,
-    score DECIMAL(5, 2), -- Example: 75.50 (out of 100)
+    score DECIMAL(5, 2),
     completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
