@@ -5,7 +5,7 @@
         <button class="shadow_logout__btn">Logout</button>
     </form>
 </div>
-
+<a href="../create" class="btn">create quiz</a>
 <div class="quizzes-header-container">
     <h1>Available Quizzes</h1>
 </div>
