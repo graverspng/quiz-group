@@ -2,7 +2,7 @@
 
 require "../App/views/tasks/create.quiz.view.php";
 if(!isset($_SESSION["user"])){
-    header("Location: /user/login");
+    header("Location: /login");
 }
 else{
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['title'],$_POST['description'])) {
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['title'],$_POST['descri
 
         
 
-        $result = $quizModel->createQuiz($userID, $title, $description);
+        $result = $quizModel->createQuiz($title, $description);
 
 }
 }

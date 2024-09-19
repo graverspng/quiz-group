@@ -9,13 +9,13 @@ class quizModel {
         $this->db = new Database();
     }
 
-    public function createQuiz(int $QuizID, string $Title, string $description,)
+    public function createQuiz( string $Title, string $description,)
     {
         $Title = htmlspecialchars($Title);
         $description = htmlspecialchars($description);
 
     
-        $query = $this->db->dbconn->prepare("INSERT INTO quizzes (QuizID, Title, description) VALUES (:QuizID, :Title, :description)");
+        $query = $this->db->dbconn->prepare("INSERT INTO quizzes ( Title, description) VALUES (:Title, :description)");
         var_dump($query);
         $query->execute([
             ':Title' => $Title,
