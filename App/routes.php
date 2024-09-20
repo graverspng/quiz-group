@@ -5,5 +5,6 @@ return [
     "/register" => "../App/controllers/auth/register.php",
     "/logout" => "../App/controllers/auth/logout.php",
     "/create" => "../App/controllers/tasks/create-quiz.php",
+    "/leaderboard" =>"../App/controllers/tasks/leaderboard.view.php",
 ]
 ?>
