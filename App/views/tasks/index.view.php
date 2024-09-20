@@ -5,59 +5,28 @@
         <button class="shadow_logout__btn">Logout</button>
     </form>
 </div>
-<a href="../create" class="btn">create quiz</a>
+
+<a href="/create" class="btn">Create Quiz</a>
+
 <div class="quizzes-header-container">
     <h1>Available Quizzes</h1>
 </div>
 
 <div class="quizzes-container">
-    <div class="container quiz-container">
-        <h2>Quiz Title 1</h2>
-        <p>Description or content for Quiz 1.</p>
-        
-        <form action="/leader-board">
-        <button>Leaderboard</button>
-        </form>
-    </div>
-
-    <div class="container quiz-container">
-        <h2>Quiz Title 2</h2>
-        <p>Description or content for Quiz 2.</p>
-
-        <form action="/leader-board">
-        <button>Leaderboard</button>
-        </form>
-
-    </div>
-
-    <div class="container quiz-container">
-        <h2>Quiz Title 3</h2>
-        <p>Description or content for Quiz 3.</p>
-
-        <form action="/leader-board">
-        <button>Leaderboard</button>
-        </form>
-    </div>
-
-
-    <div class="container quiz-container">
-        <h2>Quiz Title 4</h2>
-        <p>Description or content for Quiz 4.</p>
-
-        <form action="/leader-board">
-        <button>Leaderboard</button>
-        </form>
-    </div>
-
-
-    <div class="container quiz-container">
-        <h2>Quiz Title 5</h2>
-        <p>Description or content for Quiz 5.</p>
-
-        <form action="/leader-board">
-        <button>Leaderboard</button>
-        </form>
-    </div>
+    <?php if (!empty($quizzes)): ?>
+        <?php foreach ($quizzes as $quiz): ?>
+            <div class="container quiz-container">
+                <h2><?php echo htmlspecialchars($quiz['title']); ?></h2>
+                <p><?php echo htmlspecialchars($quiz['description']); ?></p>
+                
+                <form action="/leader-board" method="POST">
+                    <button>Leaderboard</button>
+                </form>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No quizzes available yet. Create one!</p>
+    <?php endif; ?>
 </div>
 
 <?php require "../App/views/components/footer.php"; ?>
