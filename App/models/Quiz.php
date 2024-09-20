@@ -9,7 +9,6 @@ class quizModel {
         $this->db = new Database();
     }
 
-    // Create quiz method
     public function createQuiz(string $Title, string $description) {
         $Title = htmlspecialchars($Title);
         $description = htmlspecialchars($description);
@@ -20,10 +19,9 @@ class quizModel {
             ':description' => $description,
         ]);
 
-        return $query->rowCount() > 0; // Return true if insert was successful
+        return $query->rowCount() > 0;
     }
 
-    // Fetch all quizzes method
     public function getAllQuizzes() {
         $query = $this->db->dbconn->prepare("SELECT * FROM quizzes");
         $query->execute();

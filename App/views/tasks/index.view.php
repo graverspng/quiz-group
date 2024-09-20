@@ -18,7 +18,11 @@
             <div class="container quiz-container">
                 <h2><?php echo htmlspecialchars($quiz['title']); ?></h2>
                 <p><?php echo htmlspecialchars($quiz['description']); ?></p>
-                
+
+                <form action="/php route">
+                  <button>Play the Quiz</button>
+                </form>
+                <br>
                 <form action="/leader-board" method="POST">
                     <button>Leaderboard</button>
                 </form>
@@ -34,7 +38,7 @@
 <style>
   .container {
     width: 350px;  
-    height: 500px; 
+    height: 200px; 
     margin: 10px;  
     padding: 10px;
     border: 1px solid #ddd;
