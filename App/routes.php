@@ -6,5 +6,6 @@ return [
     "/logout" => "../App/controllers/auth/logout.php",
     "/create" => "../App/controllers/tasks/create-quiz.php",
     "/leaderboard" =>"../App/controllers/tasks/leaderboard.view.php",
+    "/png" =>"../App/controllers/tasks/lfile.png",
 ]
 ?>
