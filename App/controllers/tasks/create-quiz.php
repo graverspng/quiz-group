@@ -30,7 +30,7 @@ if (!isset($_SESSION["user"])) {
                 $quizModel->createQuestion($quizId, $questionText);
 
                
-                $questionId = $quizModel->getLastQuestionId();
+                $questionId = $quizId;
 
                 
                 foreach ($options as $index => $optionText) {

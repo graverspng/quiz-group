@@ -27,5 +27,15 @@ class quizModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getLastInsertId() {
+        $query = $this->db->dbconn->prepare("SELECT quiz_id FROM quizzes");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function createQuestion() {
+        
+    }
 }
 ?>
