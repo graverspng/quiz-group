@@ -27,8 +27,6 @@ class quizModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-<<<<<<< Updated upstream
-=======
 
     public function getLastInsertId(string $Title, string $description) {
         $query = $this->db->dbconn->prepare("SELECT quiz_id FROM quizzes WHERE title = :Title AND description = :description");
@@ -39,7 +37,7 @@ class quizModel {
         $result = $query->fetch(PDO::FETCH_ASSOC);
         return $result ? $result['quiz_id'] : null;
     }
-    public function createQuestion(string $Text, int $quiz_id) {
+    public function createQuestion(string $Text, string $quiz_id) {
         $Text = htmlspecialchars($Text);
         $query = $this->db->dbconn->prepare("INSERT INTO questions (Text, quiz_id) VALUES (:Text, :quiz_id)");
         $query->execute([
@@ -48,6 +46,9 @@ class quizModel {
         ]);
         return $query->rowCount() > 0;
     }
->>>>>>> Stashed changes
+
+    public function createOptions(string $option_text, int $is_correct){
+        
+    }
 }
 ?>
