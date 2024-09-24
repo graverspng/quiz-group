@@ -22,6 +22,9 @@
         </form>
     <?php endif; ?>
 
+    <form action="/profile" method="GET">
+        <button class="shadow_leaderboard__btn">Profile</button>
+    </form>
 </div>
 
 <div class="quizzes-container">
