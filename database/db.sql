@@ -23,8 +23,6 @@ CREATE TABLE questions (
     question_id INT PRIMARY KEY AUTO_INCREMENT,
     quiz_id INT,
     text TEXT NOT NULL,
-    question_type VARCHAR(50) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
 );
 CREATE TABLE options (
