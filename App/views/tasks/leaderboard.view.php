@@ -1,6 +1,4 @@
 <?php
-
-
 // Instantiate the leaderboard
 $leaderboard = new Leaderboard();
 $users = $leaderboard->getGlobalLeaderboard();
@@ -31,7 +29,6 @@ $users = $leaderboard->getGlobalLeaderboard();
             display: flex;
             justify-content: center;
             padding: 10px;
-           
             position: relative;
             z-index: 10;
         }
@@ -75,30 +72,14 @@ $users = $leaderboard->getGlobalLeaderboard();
         }
 
         .leaderboard ol {
-            counter-reset: leaderboard;
             padding-left: 20px;
         }
 
         .leaderboard li {
             position: relative;
             font-size: 16px; /* Increased font size */
-            counter-increment: leaderboard;
-            padding: 18px 10px 18px 50px;
+            padding: 18px 10px 18px 10px; /* Adjusted padding */
             cursor: pointer;
-        }
-
-        .leaderboard li::before {
-            content: counter(leaderboard);
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            color: #c24448;
-            background: #fff;
-            border-radius: 50%;
-            text-align: center;
         }
 
         .leaderboard li mark {
@@ -120,8 +101,9 @@ $users = $leaderboard->getGlobalLeaderboard();
 <body>
 
 <div class="navbar">
-    <button onclick="window.location.href='/index.view.php'">Home</button>
-    
+    <form action="/" method="post">
+        <button class="fourOfour-button" type="submit">Home</button>
+    </form>
 </div>
 
 <div class="leaderboard">
