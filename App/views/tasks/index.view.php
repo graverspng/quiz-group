@@ -20,18 +20,23 @@
 </div>
 
 <div class="quizzes-container">
-    <!-- Example quiz card with image -->
-    <div class="card">
-        <img src="../App/controllers/tasks/file.png" alt="Quiz Image" class="card__image">
-        <div class="card__content">
-            <p class="card__title">Quiz Title 1</p>
-            <p class="card__description">Description or content for Quiz 1.</p>
-        </div>
-    </div>
-    <!-- Repeat the above block for more quizzes -->
+    <?php if (isset($quizzes) && !empty($quizzes)): ?>
+        <?php foreach ($quizzes as $quiz): ?>
+            <div class="card">
+            <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
+                <div class="card__content">
+                    <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
+                    <a href="" class="btn">Take Quiz</a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <p>No quizzes available.</p>
+    <?php endif; ?>
 </div>
 
 <?php require "../App/views/components/footer.php"; ?>
+
 
 <style>
   /* Styling for the container holding the Logout and Leaderboard buttons */
