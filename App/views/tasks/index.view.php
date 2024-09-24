@@ -1,6 +1,9 @@
 <?php require "../App/views/components/head.php"; ?>
 
-<!-- Container for Logout and Leaderboard buttons -->
+<div class="quizzes-header-container">
+    <h1>Available Quizzes</h1>
+</div>
+
 <div class="action-buttons-container">
     <!-- Logout Button -->
     <form action="/logout" method="POST">
@@ -11,12 +14,14 @@
     <form action="/App/views/tasks/leaderboard.view.php" method="GET">
         <button class="shadow_leaderboard__btn">Leaderboard</button>
     </form>
-</div>
 
-<a href="../create" class="btn">Create Quiz</a>
+    <?php if (isset($_SESSION["user"]) && $_SESSION["is_admin"]): ?>
 
-<div class="quizzes-header-container">
-    <h1>Available Quizzes</h1>
+        <form action="/create" method="POST">
+            <button class="create_button_admin">Create Quiz</button>
+        </form>
+    <?php endif; ?>
+
 </div>
 
 <div class="quizzes-container">
@@ -47,7 +52,7 @@
     margin-bottom: 20px;
   }
 
-  .shadow_logout__btn, .shadow_leaderboard__btn {
+  .shadow_leaderboard__btn {
     background-color: #00E8FF;
     border: none;
     color: white;
@@ -60,13 +65,13 @@
     transition: all 0.3s ease;
   }
 
-  .shadow_logout__btn:hover, .shadow_leaderboard__btn:hover {
+  .shadow_leaderboard__btn:hover {
     background-color: #00B8C1;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
   }
 
-  .shadow_logout__btn:active, .shadow_leaderboard__btn:active {
+  .shadow_leaderboard__btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
@@ -140,5 +145,53 @@
     font-size: 14px;
     color: #777;
     line-height: 1.4;
+  }
+
+  .create_button_admin {
+  background-color: #6aff00;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.create_button_admin:hover{
+  background-color: rgb(3, 112, 6);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.create_button_admin:active{
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.shadow_logout__btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .shadow_logout__btn:hover {
+    background-color: darkred;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .shadow_logout__btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
 </style>

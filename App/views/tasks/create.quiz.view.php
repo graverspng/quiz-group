@@ -142,12 +142,12 @@
 
             <?php for ($i = 1; $i <= 1; $i++): ?>
                 <div class="Question-<?php echo $i; ?>">
-                    <p>Correct Option Index: <input type="number" name="questions[<?php echo $i; ?>][correct]" min="1" max="4" placeholder="1-4" required></p>
+                    <p>Correct Option Index: <input type="number" name="options[<?php echo $i; ?>][correct]" min="1" max="4" placeholder="1-4" required></p>
                     <p>Question <?php echo $i; ?>: <input type="text" name="questions[<?php echo $i; ?>][text]" placeholder="Enter question" required></p>
-                    <p>Option 1: <input type="text" name="questions[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                    <p>Option 2: <input type="text" name="questions[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                    <p>Option 3: <input type="text" name="questions[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                    <p>Option 4: <input type="text" name="questions[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
+                    <p>Option 1: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
+                    <p>Option 2: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
+                    <p>Option 3: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
+                    <p>Option 4: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
                 </div>
             <?php endfor; ?>
 
