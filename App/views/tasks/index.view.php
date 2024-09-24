@@ -11,7 +11,7 @@
     </form>
 
     <!-- Leaderboard Button -->
-    <form action="/App/views/tasks/leaderboard.view.php" method="GET">
+    <form action="/leaderboard" method="GET">
         <button class="shadow_leaderboard__btn">Leaderboard</button>
     </form>
 

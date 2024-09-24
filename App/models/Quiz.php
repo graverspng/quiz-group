@@ -27,8 +27,8 @@ class quizModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-<<<<<<< Updated upstream
-=======
+
+
 
     public function getLastInsertId(string $Title, string $description) {
         $query = $this->db->dbconn->prepare("SELECT quiz_id FROM quizzes WHERE title = :Title AND description = :description");
@@ -48,6 +48,5 @@ class quizModel {
         ]);
         return $query->rowCount() > 0;
     }
->>>>>>> Stashed changes
 }
 ?>

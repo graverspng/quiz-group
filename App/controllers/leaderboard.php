@@ -21,8 +21,17 @@ class Leaderboard {
                   GROUP BY username 
                   ORDER BY total_score DESC 
                   LIMIT 15";
-        $results = $this->db->execute($query, []);
-        return $results->fetchAll();
+        
+        // Assuming the Database class uses prepare and execute
+        $stmt = $this->db->prepare($query);
+        
+        if ($stmt->execute()) {
+            // Fetch the result as an associative array
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            // Handle query failure (optional)
+            return [];
+        }
     }
 }
-?>
+require "../App/views/tasks/leaderboard.view.php";
