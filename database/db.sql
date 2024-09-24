@@ -23,14 +23,15 @@ CREATE TABLE questions (
     question_id INT PRIMARY KEY AUTO_INCREMENT,
     quiz_id INT,
     text TEXT NOT NULL,
-    question_type VARCHAR(50) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
 );
 CREATE TABLE options (
     option_id INT PRIMARY KEY AUTO_INCREMENT,
     question_id INT,
-    option_text VARCHAR(255) NOT NULL,
+    option_text1 VARCHAR(255) NOT NULL,
+    option_text2 VARCHAR(255) NOT NULL,
+    option_text3 VARCHAR(255) NOT NULL,
+    option_text4 VARCHAR(255) NOT NULL,
     is_correct BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (question_id) REFERENCES questions(question_id) ON DELETE CASCADE
 );
