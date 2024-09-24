@@ -28,17 +28,27 @@ require "../App/views/tasks/create.quiz.view.php";
                
                 $questionId = $quizId;
 
-                /*
-                foreach ($options as $index => $optionText) {
-                    $isCorrect = ($index === $correctIndex) ? 1 : 0;
-                    $quizModel->createOption($questionId, htmlspecialchars($optionText), $isCorrect);
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['options'] )) {
+                    $options = ($_POST['options']);
+                    $correct = $options[1]['correct'];
+                    $correct = $correct -1;
+                    
+                    $option1 = $options[1]['options'][0];
+                    $option2 = $options[1]['options'][1];
+                    $option3 = $options[1]['options'][2];
+                    $option4 = $options[1]['options'][3];
+
+                    echo $option1,"  ", $option2,"  ", $option3,"  ", $option4;
+
+                    $quizModel->createOption($correct, $option1, $option2, $option3, $option4, $questionId);
                 }
-                */
-            }
+    
+                
+            
 
             
-            header("Location: /");
+            //header("Location: /");
             exit;
         }
-
+    }
 ?>
