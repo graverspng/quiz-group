@@ -15,6 +15,7 @@ require "../App/views/tasks/create.quiz.view.php";
         $quizCreated = $quizModel->createQuiz($title, $description);
 
         if ($quizCreated) {
+<<<<<<< Updated upstream
             // Fetch the last inserted quiz ID
             $quizId = $quizModel->getLastInsertId();
 
@@ -30,15 +31,42 @@ require "../App/views/tasks/create.quiz.view.php";
                 $questionId = $quizModel->getLastQuestionId();
 
                 // Insert the options
+=======
+
+            $quizId = $quizModel->getLastInsertId($title, $description);
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['questions'])) {
+                $question = $_POST['questions'];
+                $questionText = implode("", $question);
+                $quiz_id = implode("",$quizId);
+                $quizModel->createQuestion($quiz_id, $questionText);
+                
+
+                }
+               
+                $questionId = $quizId;
+
+                /*
+>>>>>>> Stashed changes
                 foreach ($options as $index => $optionText) {
                     $isCorrect = ($index === $correctIndex) ? 1 : 0;
                     $quizModel->createOption($questionId, htmlspecialchars($optionText), $isCorrect);
                 }
+                */
             }
 
+<<<<<<< Updated upstream
             // Redirect to the quizzes page
             header("Location: /quizzes");
             exit;
         }
     }
+=======
+            
+            header("Location: /");
+            exit;
+        }
+    }
+
+>>>>>>> Stashed changes
 ?>
