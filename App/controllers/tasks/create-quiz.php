@@ -20,8 +20,8 @@ require "../App/views/tasks/create.quiz.view.php";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['questions'])) {
                 $question = $_POST['questions'];
-                $a = implode(" ", $question);
-                $quizModel->createQuestion($a, $quizId);
+                $string = $question[1]['text'];
+                $quizModel->createQuestion($string, $quizId);
                 
 
                 }
