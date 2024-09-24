@@ -5,10 +5,6 @@
 </div>
 
 <div class="action-buttons-container">
-    <!-- Logout Button -->
-    <form action="/logout" method="POST">
-        <button class="shadow_logout__btn">Logout</button>
-    </form>
 
     <!-- Leaderboard Button -->
     <form action="/leaderboard" method="GET">
@@ -23,7 +19,7 @@
     <?php endif; ?>
 
     <form action="/profile" method="GET">
-        <button class="shadow_leaderboard__btn">Profile</button>
+        <button class="shadow_logout__btn">Profile</button>
     </form>
 </div>
 
