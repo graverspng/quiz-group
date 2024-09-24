@@ -17,7 +17,7 @@
 
     <?php if (isset($_SESSION["user"]) && $_SESSION["is_admin"]): ?>
 
-        <form action="/create-quiz" method="POST">
+        <form action="/create" method="POST">
             <button class="create_button_admin">Create Quiz</button>
         </form>
     <?php endif; ?>
