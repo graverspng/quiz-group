@@ -117,14 +117,14 @@
   .card__title {
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: black;
     font-weight: 700;
   }
 
   .card__description {
     margin: 10px 0 0;
     font-size: 14px;
-    color: #777;
+    color: black;
     line-height: 1.4;
   }
 
