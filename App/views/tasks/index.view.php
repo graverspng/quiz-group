@@ -27,16 +27,15 @@
 </div>
 
 <div class="quizzes-container">
-        <?php foreach ($quizzes as $quiz): ?>
-            <div class="card">
-                <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
-                <div class="card__content">
-                    <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
-                      <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="POST">
-                      <input type="hidden" name="quiz_id" value="<?= $quiz['quiz_id'] ?>">
-                      <button class="shadow_logout__btn">take quiz</button>
-                    </form>
-                </div>
+    <?php foreach ($quizzes as $quiz): ?>
+        <div class="card">
+            <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
+            <div class="card__content">
+                <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
+                <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="POST">
+                    <input type="hidden" name="quiz_id" value="<?= $quiz['quiz_id'] ?>">
+                    <button class="shadow_logout__btn">Take Quiz</button>
+                </form>
             </div>
         </div>
     <?php endforeach; ?>
@@ -47,6 +46,8 @@
 <style>
   body {
     background-color: #121212;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .quizzes-header-container {
@@ -58,15 +59,13 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    margin-top: 10px;
   }
 
   .quizzes-header {
       font-size: 36px;
-      color: purple; /* Keep the header text color */
+      color: purple;
       font-weight: bold;
       margin: 0;
-      background-color: white;
   }
 
   .action-buttons-container {
@@ -78,10 +77,10 @@
 
   .quizzes-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 0 10px; /* Added padding for better spacing */
+    flex-wrap: wrap; /* Allows wrapping of cards */
+    justify-content: center; /* Centers cards */
+    gap: 20px; /* Space between cards */
+    padding: 0 10px; /* Padding around the container */
   }
 
   .card {
@@ -91,8 +90,9 @@
     background-color: #f2f2f2; /* Card background color */
     border-radius: 10px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* Arrange title and content vertically */
+    align-items: center; /* Center align content */
+    justify-content: center; /* Center align content */
     overflow: hidden;
     perspective: 1000px;
     box-shadow: 0 0 0 5px #301934;
@@ -122,6 +122,7 @@
     font-size: 24px;
     color: black;
     font-weight: 700;
+    text-align: center; /* Center title text */
   }
 
   .card__description {
@@ -129,6 +130,7 @@
     font-size: 14px;
     color: black;
     line-height: 1.4;
+    text-align: center; /* Center description text */
   }
 
   .template_button_admin, .shadow_logout__btn {
