@@ -53,7 +53,7 @@
     text-align: center;
     margin: 0 auto 30px;
     padding: 20px;
-    background-color: rgba(249, 249, 249, 0.9); /* Use a slightly transparent background for contrast */
+    background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     margin-top: 10px;
@@ -64,6 +64,7 @@
       color: purple; /* Keep the header text color */
       font-weight: bold;
       margin: 0;
+      background-color: white;
   }
 
   .action-buttons-container {

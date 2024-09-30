@@ -19,6 +19,7 @@ header {
   }
   
   body {
+    background-color: #121212;
     background-size: 300% 200%;
     animation: backgroundMove 10s ease infinite;
     margin: 0;

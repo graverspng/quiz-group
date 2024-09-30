@@ -1,14 +1,10 @@
 <?php require "../App/views/components/head.php"; ?>
 
-
-<link rel="stylesheet" href="profile.css">
-
-
-
 <style>
     body {
         background-color: #121212;
         color: #e0e0e0;
+        font-family: Arial, sans-serif;
     }
 
     .profile-container {
@@ -62,8 +58,8 @@
 
     .auth-button {
         padding: 10px 20px;
-        background-color: #301934;
-        color: white;
+        background-color: #bb86fc;
+        color: #121212;
         border: none;
         border-radius: 5px;
         cursor: pointer;
@@ -89,7 +85,7 @@
 
     .shadow_logout__btn {
         padding: 10px 20px;
-        background-color: #301934;
+        background-color: #bb86fc;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -155,4 +151,3 @@
 </main>
 
 <?php require "../App/views/components/footer.php"; ?>
-
