@@ -7,5 +7,7 @@ return [
     "/create" => "../App/controllers/tasks/create-quiz.php",
     "/leaderboard" =>"../App/controllers/leaderboard.php",
     "/profile" => "../App/controllers/auth/profile.php",
+    "/quiz_template" => "../App/controllers/quiz/quiz_template.php",
+    "/quiz_template2" => "../App/controllers/quiz/quiz_template2.php",
 ]
 ?>
