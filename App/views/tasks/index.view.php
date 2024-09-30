@@ -6,9 +6,9 @@
 
 <div class="action-buttons-container">
     <?php if (isset($_SESSION["user"]) && $_SESSION["is_admin"]): ?>
-      <form action="/quiz_template" method="POST">
-        <button class="template_button_admin">Quiz Template</button>
-      </form>
+        <form action="/quiz_template" method="POST">
+            <button class="template_button_admin">Quiz Template</button>
+        </form>
     <?php endif; ?>
 
     <form action="/leaderboard" method="GET">
@@ -27,27 +27,45 @@
 </div>
 
 <div class="quizzes-container">
-        <?php foreach ($quizzes as $quiz): ?>
-            <div class="card">
-                <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
-                <div class="card__content">
-                    <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
-                      <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="GET">
-                      <button class="shadow_logout__btn">take quiz</button>
-                    </form>
-                </div>
+    <?php foreach ($quizzes as $quiz): ?>
+        <div class="card">
+            <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
+            <div class="card__content">
+                <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
+                <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="GET">
+                    <button class="shadow_logout__btn">Take Quiz</button>
+                </form>
             </div>
-            </div>
-        <?php endforeach; ?>
-
+        </div>
+    <?php endforeach; ?>
 </div>
 
 <?php require "../App/views/components/footer.php"; ?>
 
 <style>
   body {
-    background-color: red;
+    background-color: #121212;
   }
+
+  .quizzes-header-container {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: rgba(249, 249, 249, 0.9); /* Use a slightly transparent background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+  }
+
+  .quizzes-header {
+      font-size: 36px;
+      color: purple; /* Keep the header text color */
+      font-weight: bold;
+      margin: 0;
+  }
+
   .action-buttons-container {
     display: flex;
     justify-content: center;
@@ -55,63 +73,19 @@
     margin-bottom: 20px;
   }
 
-  .shadow_leaderboard__btn {
-    background-color: #00E8FF;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  }
-
-  .shadow_leaderboard__btn:hover {
-    background-color: #00B8C1;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-  }
-
-  .shadow_leaderboard__btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .quizzes-header-container {
-    width: 500px;
-    text-align: center;
-    margin: 0 auto 30px; /* Center the container and add bottom margin */
-    padding: 20px; /* Add padding to the container */
-    background-color: #f9f9f9; /* Optional: Add a background color */
-    border-radius: 10px; /* Optional: Round the corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    opacity: 0.5;
-    margin-top:10px;
-}
-
-
-  .quizzes-header {
-      font-size: 36px; /* Increase the text size */
-      color: #333; /* Adjust color as needed */
-      font-weight: bold; /* Make the text bold */
-      margin: 0; /* Remove default margin */
-  }
-
   .quizzes-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    padding: 0 10px; /* Added padding for better spacing */
   }
 
-  /* Card style */
   .card {
     position: relative;
     width: 300px;
     height: 200px;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; /* Card background color */
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -154,55 +128,7 @@
     line-height: 1.4;
   }
 
-  .create_button_admin {
-      background-color: #6aff00;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-  }
-
-  .create_button_admin:hover {
-      background-color: rgb(3, 112, 6);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
-  }
-
-  .create_button_admin:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .shadow_logout__btn {
-      background-color: red;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-  }
-
-  .shadow_logout__btn:hover {
-      background-color: darkred;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
-  }
-
-  .shadow_logout__btn:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  .template_button_admin {
+  .template_button_admin, .shadow_logout__btn {
       background-color: #301934;
       border: none;
       color: white;
@@ -215,13 +141,13 @@
       transition: all 0.3s ease;
   }
 
-  .template_button_admin:hover {
+  .template_button_admin:hover, .shadow_logout__btn:hover {
       background-color: purple;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       transform: translateY(-2px);
   }
 
-  .template_button_admin:active {
+  .template_button_admin:active, .shadow_logout__btn:active {
       transform: translateY(0);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
