@@ -27,19 +27,19 @@
 </div>
 
 <div class="quizzes-container">
-    <?php if (isset($quizzes) && !empty($quizzes)): ?>
         <?php foreach ($quizzes as $quiz): ?>
             <div class="card">
                 <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
                 <div class="card__content">
                     <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
-                    <a href="" class="btn">Take Quiz</a>
+                      <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="GET">
+                      <button class="shadow_logout__btn">take quiz</button>
+                    </form>
                 </div>
             </div>
+            </div>
         <?php endforeach; ?>
-    <?php else: ?>
-        <p>No quizzes available.</p>
-    <?php endif; ?>
+
 </div>
 
 <?php require "../App/views/components/footer.php"; ?>

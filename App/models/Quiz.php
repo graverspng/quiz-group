@@ -46,6 +46,9 @@ class quizModel {
         return $query->rowCount() > 0;
     }
 
+
+    
+
     public function createOption(string $correct, string $option1, string $option2, string $option3, string $option4, $question_id) {
         $query = $this->db->dbconn->prepare("INSERT INTO options (question_id, option_text1, option_text2, option_text3, option_text4, is_correct) VALUES (:question_id, :option1,:option2,:option3,:option4, :correct)");
         $query->execute([
