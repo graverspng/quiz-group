@@ -7,9 +7,12 @@ $users = $leaderboard->getGlobalLeaderboard();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="leaderboard.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Leaderboard</title>
+<<<<<<< HEAD
+=======
     <style>
         body {
             background-color: #121212; /* Gray background */
@@ -99,6 +102,7 @@ $users = $leaderboard->getGlobalLeaderboard();
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
     </style>
+>>>>>>> a5350b31313542f8b305f145bd28758548748f9d
 </head>
 <body>
 

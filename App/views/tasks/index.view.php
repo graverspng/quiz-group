@@ -1,5 +1,5 @@
 <?php require "../App/views/components/head.php"; ?>
-
+<link rel="stylesheet" href="index.css">
 <div class="quizzes-header-container">
     <h1 class="quizzes-header" style="color: purple">Available Quizzes</h1>
 </div>

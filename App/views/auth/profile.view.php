@@ -1,5 +1,10 @@
 <?php require "../App/views/components/head.php"; ?>
 
+
+<link rel="stylesheet" href="profile.css">
+
+
+
 <style>
     body {
         background-color: #121212;
@@ -150,3 +155,4 @@
 </main>
 
 <?php require "../App/views/components/footer.php"; ?>
+
