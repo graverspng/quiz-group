@@ -19,8 +19,6 @@ header {
   }
   
   body {
-    background-color: #212121;
-    background: linear-gradient(90deg, #2c2c2c, #969696);
     background-size: 300% 200%;
     animation: backgroundMove 10s ease infinite;
     margin: 0;

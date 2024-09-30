@@ -9,6 +9,7 @@ return [
     "/profile" => "../App/controllers/auth/profile.php",
     "/quiz_template" => "../App/controllers/quiz/quiz_template.php",
     "/quiz_template2" => "../App/controllers/quiz/quiz_template2.php",
-    "/take_quiz" => "../App/controllers/quiz/take_quiz.php",
-];
+
+    
+]
 ?>
