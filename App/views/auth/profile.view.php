@@ -1,6 +1,8 @@
 <?php require "../App/views/components/head.php"; ?>
 
+
 <link rel="stylesheet" href="profile.css">
+
 
 
 <style>
@@ -153,8 +155,4 @@
 </main>
 
 <?php require "../App/views/components/footer.php"; ?>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> a5350b31313542f8b305f145bd28758548748f9d
