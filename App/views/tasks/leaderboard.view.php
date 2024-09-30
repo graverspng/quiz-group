@@ -12,7 +12,7 @@ $users = $leaderboard->getGlobalLeaderboard();
     <title>Global Leaderboard</title>
     <style>
         body {
-            background-color: #2c2c2c; /* Gray background */
+            background-color: #121212; /* Gray background */
             color: #fff; /* White text color */
             font-family: Arial, sans-serif;
             display: flex;
@@ -25,6 +25,7 @@ $users = $leaderboard->getGlobalLeaderboard();
 
         .leaderboard {
             background-color: #333; /* Dark gray background for leaderboard */
+            height: 500px;
             width: 350px;
             padding: 20px;
             border-radius: 8px;
@@ -101,12 +102,6 @@ $users = $leaderboard->getGlobalLeaderboard();
 </head>
 <body>
 
-<div class="navbar">
-    <form action="/" method="post">
-        <button type="submit" class="template_button_admin">Home</button>
-    </form>
-</div>
-
 <div class="leaderboard">
     <h1>High Scores</h1>
     <ol>
@@ -124,6 +119,12 @@ $users = $leaderboard->getGlobalLeaderboard();
             </li>
         <?php endif; ?>
     </ol>
+</div>
+<br>
+<div class="navbar">
+    <form action="/" method="post">
+        <button type="submit" class="template_button_admin">Home</button>
+    </form>
 </div>
 
 </body>
