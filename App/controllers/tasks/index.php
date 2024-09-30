@@ -9,7 +9,7 @@ $title = "Home Page";
 // Include the Quiz model
 require_once "../App/Models/Quiz.php";
 
-// Instantiate the quiz model and fetch all quizzes from the database
+// Innstantiate the quiz model and fetch all quizzes from the database
 $quizModel = new quizModel();
 $quizzes = $quizModel->getAllQuizzes();
 

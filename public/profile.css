@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #282c34; /* Darker background color */
+    color: #ffffff; /* White text color */
+}
+
+.create-edit-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of viewport */
+}
+
+.container-profile {
+    max-width: 600px; /* Limit width */
+    width: 100%;
+    background-color: #3c3f44; /* Darker box background */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for a floating effect */
+    padding: 30px; /* Padding inside box */
+    box-sizing: border-box;
+}
+
+.profile-header {
+    text-align: center; /* Center header text */
+    color: #00E8FF; /* Header color */
+    margin-bottom: 20px; /* Space below header */
+    font-size: 24px; /* Larger font size for header */
+}
+
+.admin-badge {
+    color: #ffcc00; /* Bright color for admin badge */
+}
+
+.profile-div {
+    margin-bottom: 20px; /* Space between profile sections */
+    padding: 20px; /* Inner padding */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #474a51; /* Box background color */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.profile-div:hover {
+    background-color: #5a5d62; /* Darker shade on hover */
+}
+
+.auth-label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 10px; /* Space below labels */
+    color: #ffffff; /* Label color */
+}
+
+.auth-input {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 12px; /* Padding inside input */
+    border: 1px solid #00E8FF; /* Light border for input */
+    border-radius: 5px; /* Rounded corners for input */
+    background-color: #383b40; /* Darker background for input */
+    color: #ffffff; /* White text color for input */
+    font-size: 16px; /* Larger font size for input */
+}
+
+.auth-input::placeholder {
+    color: #cccccc; /* Placeholder text color */
+}
+
+.auth-button {
+    display: block; /* Make buttons block elements */
+    width: 100%; /* Full width for buttons */
+    padding: 12px; /* Padding inside button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #00E8FF; /* Button color */
+    color: #ffffff; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 10px; /* Space above button */
+    transition: background-color 0.3s; /* Smooth transition for button color */
+}
+
+.auth-button:hover {
+    background-color: #00c1d4; /* Darker shade on hover */
+}
+
+.invalid-data {
+    color: #ff5555; /* Red color for error messages */
+    text-align: center; /* Center error messages */
+}
+
+.profile-logout-box {
+    text-align: center; /* Center logout section text */
+}
