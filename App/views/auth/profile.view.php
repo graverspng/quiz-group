@@ -45,10 +45,21 @@
             </div>
             <br>
             <div class="profile-logout-box">
+
                 <h2>Log out?</h2>
                 <form action="/logout" method="POST">
                     <button class="shadow_logout__btn">Logout</button>
                 </form>
+
+            <h2> Log out? </h2>
+            <form action="/logout" method="POST">
+                <button class="shadow_logout__btn">Logout</button>
+            </form>
+
+            <form action="/" method="POST">
+                <button class="shadow_logout__btn">home</button>
+            </form>
+
             </div>
             <br>
         </div>
