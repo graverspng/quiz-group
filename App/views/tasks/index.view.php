@@ -6,7 +6,12 @@
 
 <div class="action-buttons-container">
 
-    <!-- Leaderboard Button -->
+    <?php if (isset($_SESSION["user"]) && $_SESSION["is_admin"]): ?>
+      <form action="/quiz_template" method="POST">
+        <button class="template_button_admin">Quiz Template</button>
+      </form>
+    <?php endif; ?>
+
     <form action="/leaderboard" method="GET">
         <button class="shadow_leaderboard__btn">Leaderboard</button>
     </form>
@@ -190,6 +195,28 @@
   }
 
   .shadow_logout__btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  .template_button_admin {
+    background-color: #301934;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  .template_button_admin:hover {
+    background-color: #301934;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .template_button_admin:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
