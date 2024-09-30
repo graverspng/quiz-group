@@ -27,14 +27,16 @@
 </div>
 
 <div class="quizzes-container">
-    <?php foreach ($quizzes as $quiz): ?>
-        <div class="card">
-            <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
-            <div class="card__content">
-                <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
-                <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="GET">
-                    <button class="shadow_logout__btn">Take Quiz</button>
-                </form>
+        <?php foreach ($quizzes as $quiz): ?>
+            <div class="card">
+                <p class="card__title"><?= htmlspecialchars($quiz['title']) ?></p>
+                <div class="card__content">
+                    <p class="card__description"><?= htmlspecialchars($quiz['description']) ?></p>
+                      <form action="/take_quiz?id=<?= $quiz['quiz_id'] ?>" method="POST">
+                      <input type="hidden" name="quiz_id" value="<?= $quiz['quiz_id'] ?>">
+                      <button class="shadow_logout__btn">take quiz</button>
+                    </form>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
