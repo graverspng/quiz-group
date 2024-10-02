@@ -5,12 +5,6 @@
 </div>
 
 <div class="action-buttons-container">
-    <?php if (isset($_SESSION["user"]) && $_SESSION["is_admin"]): ?>
-        <form action="/quiz_template" method="POST">
-            <button class="template_button_admin">Quiz Template</button>
-        </form>
-    <?php endif; ?>
-
     <form action="/leaderboard" method="GET">
         <button class="template_button_admin">Leaderboard</button>
     </form>
