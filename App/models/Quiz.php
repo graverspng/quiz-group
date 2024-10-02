@@ -63,34 +63,4 @@ class quizModel {
     }
 
 
-    public function quizQuestions(string $quiz_id){
-        $query = $this->db->dbconn->prepare("SELECT text, question_id FROM questions WHERE quiz_id = :quiz_id");
-        $query->execute([
-            ':quiz_id' => $quiz_id,
 
-        ]);
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function quizOptions(string $question_id){
-        $query = $this->db->dbconn->prepare("SELECT option_text1, option_text2, option_text3, option_text4  FROM options WHERE question_id = :question_id");
-        $query->execute([
-            ':question_id' => $question_id,
-
-        ]);
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
-    public function quizCorrect(string $question_id){
-        $query = $this->db->dbconn->prepare("SELECT is_correct FROM options WHERE question_id = :question_id");
-        $query->execute([
-            ':question_id' => $question_id,
-
-        ]);
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-}
-?>
