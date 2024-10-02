@@ -1,4 +1,4 @@
-<?php
+<?php 
 require "../App/Core/Database.php"; // Ensure your Database class is included
 
 class Leaderboard {
@@ -16,9 +16,10 @@ class Leaderboard {
 
     public function getGlobalLeaderboard() {
         // Fetch the top 15 users by total score across all quizzes
-        $query = "SELECT username, SUM(score) AS total_score 
-                  FROM users 
-                  GROUP BY username 
+        $query = "SELECT u.username, SUM(qr.score) AS total_score 
+                  FROM users u
+                  JOIN quiz_results qr ON u.user_id = qr.user_id   -- Change u.id to u.user_id
+                  GROUP BY u.username 
                   ORDER BY total_score DESC 
                   LIMIT 15";
         

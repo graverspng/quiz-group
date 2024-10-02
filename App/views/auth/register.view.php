@@ -21,19 +21,39 @@
             <?php } ?>
             <label class="auth-label" style="color:white">
                 Password
-                <br> 
-                <input class="auth-input" type="password" name="password" value="<?= $_POST["password"] ?? "" ?>"/>
+                <br>
+                <div class="password-container">
+                    <input class="auth-input" id="password" type="password" name="password" value="<?= $_POST["password"] ?? "" ?>" />
+                    <button type="button" class="btn-class-name" onclick="togglePassword()">
+                        <span class="back"></span>
+                        <span class="front">Show</span>
+                    </button>
+                </div>
             </label>
             <?php if (isset($errors["password"])) { ?>
                 <p class="invalid-data"> <?= $errors["password"] ?> </p>
             <?php } ?>
-            <span style="font-size: 12px; color:white;" >(8 chars: 1 uppercase, 1 number, 1 symbol)</span>
+            <span style="font-size: 12px; color:white;">(8 chars: 1 uppercase, 1 number, 1 symbol)</span>
+            <br><br>
             <button class="auth-button" style="background-color:#00E8FF;">Submit</button>
         </form>
         <a href="/login">Log-in</a>
     </div>
 </main>
 </div>
+
+<script>
+function togglePassword() {
+    var passwordField = document.getElementById("password");
+    var frontText = document.querySelector(".btn-class-name .front");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        frontText.textContent = "Hide"; // Change button text to "Hide" when password is shown
+    } else {
+        passwordField.type = "password";
+        frontText.textContent = "Show"; // Change back to "Show" when password is hidden
+    }
+}
+</script>
+
 <?php require "../App/views/components/footer.php" ?>
-
-

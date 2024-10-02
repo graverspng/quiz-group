@@ -94,4 +94,14 @@ a:hover {
     height: 200px;
     width: 300px;
     border-radius: 8px;
+    .logo-container {
+        text-align: center; /* Center the logo */
+        margin-bottom: 20px; /* Space below the logo */
+    }
+    
+    .logo {
+        max-width: 100px; /* Set a maximum width for the logo */
+        height: auto; /* Maintain aspect ratio */
+    }
+    
 }

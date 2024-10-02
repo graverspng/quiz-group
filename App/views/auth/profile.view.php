@@ -1,5 +1,6 @@
 <?php require "../App/views/components/head.php"; ?>
 
+
 <style>
     body {
         background-color: #121212;

@@ -46,12 +46,19 @@ CREATE TABLE answers (
     FOREIGN KEY (question_id) REFERENCES questions(question_id) ON DELETE CASCADE,
     FOREIGN KEY (option_id) REFERENCES options(option_id) ON DELETE CASCADE
 );
-CREATE TABLE quiz_results (
-    result_id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    quiz_id INT,
-    score DECIMAL(5, 2),
-    completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id) ON DELETE CASCADE
-);
+CREATE TABLE `quiz_results` (
+	`result_id` INT(10) NOT NULL AUTO_INCREMENT,
+	`user_id` INT(10) NULL DEFAULT NULL,
+	`quiz_id` INT(10) NULL DEFAULT NULL,
+	`score` DECIMAL(5,2) NULL DEFAULT NULL,
+	`completed_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`result_id`) USING BTREE,
+	INDEX `user_id` (`user_id`) USING BTREE,
+	INDEX `quiz_id` (`quiz_id`) USING BTREE,
+	CONSTRAINT `quiz_results_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON UPDATE NO ACTION ON DELETE CASCADE,
+	CONSTRAINT `quiz_results_ibfk_2` FOREIGN KEY (`quiz_id`) REFERENCES `quizzes` (`quiz_id`) ON UPDATE NO ACTION ON DELETE CASCADE
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=4
+;

@@ -1,5 +1,5 @@
 <?php 
-auth();
+auth(); // Ensure user authentication
 
 require "../App/Core/Database.php";
 require "../App/Core/Validator.php";
@@ -23,9 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result && $result['count'] > 0) {
                 $errors["new_username"] = "Username already exists. Please choose another one.";
             } else {
-                $query = "UPDATE users SET username = :new_username WHERE id = :id";
+                // Update username query using the correct primary key
+                $query = "UPDATE users SET username = :new_username WHERE user_id = :user_id"; // Change 'id' to your actual primary key
                 $params = [
-                    ":id" => $_SESSION["user_id"],
+                    ":user_id" => $_SESSION["user_id"], // Ensure this is set correctly
                     ":new_username" => $new_username
                 ];
                 $stmt = $db->execute($query, $params);
@@ -42,9 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!Validator::email($new_email)) {
             $errors["new_email"] = "Invalid email format!";
         } else {
-            $query = "UPDATE users SET email = :new_email WHERE id = :id";
+            $query = "UPDATE users SET email = :new_email WHERE user_id = :user_id"; // Ensure this matches your DB structure
             $params = [
-                ":id" => $_SESSION["user_id"],
+                ":user_id" => $_SESSION["user_id"],
                 ":new_email" => $new_email
             ];
             $stmt = $db->execute($query, $params);
@@ -66,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($new_password) || strlen($new_password) < 8) {
             $errors["new_password"] = "Password must be at least 8 characters long.";
         } else {
-            $query = "UPDATE users SET password = :new_password WHERE id = :id";
+            $query = "UPDATE users SET password = :new_password WHERE user_id = :user_id"; // Ensure this matches your DB structure
             $params = [
                 ":new_password" => password_hash($new_password, PASSWORD_DEFAULT),
-                ":id" => $_SESSION["user_id"]
+                ":user_id" => $_SESSION["user_id"]
             ];
             $stmt = $db->execute($query, $params);
 
