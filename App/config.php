@@ -6,4 +6,4 @@ return [
   "password" => "root",
   "charset" => "utf8mb4"
 ];
-?
+?>
