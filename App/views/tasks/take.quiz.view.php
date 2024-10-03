@@ -14,9 +14,9 @@
 }
 
 body {
-  background: linear-gradient(135deg, #301934, black, purple); /* Adjusted colors and direction */
-  background-size: 300% 100%; /* Adjust the size for smoother movement */
-  animation: backgroundMove 10s ease infinite; /* Animation to move background */
+  background: linear-gradient(135deg, #301934, black, purple); 
+  background-size: 300% 100%; 
+  animation: backgroundMove 10s ease infinite;
   margin: 0;
   font-family: Arial, sans-serif;
 }
@@ -52,7 +52,7 @@ body {
 }
 
 .progress-bar {
-    width: 100%; /* Set to 100% for full progress */
+    width: 100%;
     height: 10px;
     background-color: #bb86fc;
     border-radius: 5px;
@@ -109,26 +109,35 @@ body {
         <h1>Sample Quiz</h1>
 
         <div class="progress-container">
-            <div class="progress-bar"></div> <!-- Progress bar is now full -->
+            <div class="progress-bar"></div>
         </div>
         <div class="progress-text"><?php echo count($quizData); ?> questions</div>
 
         <form action="/submit_quiz" method="post">
-            <!-- Loop through each question and display its options -->
             <?php foreach ($quizData as $index => $data): ?>
                 <div class="question-block">
-                    <!-- Display question text -->
                     <h3><?php echo htmlspecialchars($data['question']['text']); ?></h3>
 
-                    <!-- Display options for the current question -->
-                    <?php for ($i = 1; $i <= 4; $i++): ?>
-                        <?php if (isset($data['options']['option_text' . $i])): ?>
-                            <div class="option">
-                                <input type="radio" name="question_<?php echo $data['question']['question_id']; ?>" value="<?php echo $i; ?>" required>
-                                <label><?php echo htmlspecialchars($data['options']['option_text' . $i]); ?></label>
-                            </div>
-                        <?php endif; ?>
-                    <?php endfor; ?>
+                    <?php
+                    $options = [];
+                    for ($i = 1; $i <= 4; $i++) {
+                        if (isset($data['options']['option_text' . $i])) {
+                            $options[] = [
+                                'text' => $data['options']['option_text' . $i],
+                                'value' => $i
+                            ];
+                        }
+                    }
+
+                    shuffle($options);
+                    ?>
+
+                    <?php foreach ($options as $option): ?>
+                        <div class="option">
+                            <input type="radio" name="question_<?php echo $data['question']['question_id']; ?>" value="<?php echo $option['value']; ?>" required>
+                            <label><?php echo htmlspecialchars($option['text']); ?></label>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
             
@@ -141,6 +150,5 @@ body {
         </form>
     </div>
 </div>
-
 
 <?php require "../App/views/components/footer.php"; ?>
