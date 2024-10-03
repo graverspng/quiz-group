@@ -4,32 +4,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quizModel = new quizModel();
 
     $quiz_id = $_POST['quiz_id'];
-    $question = $quizModel->quizQuestions($quiz_id);
-    $correct_answer = $quizModel->quizCorrect($question['question_id']);
+    $questions = $quizModel->getAllQuizQuestions($quiz_id);  // Fetch all quiz questions
 
-    // Initialize a message variable
-    $message = '';
+    $correctAnswersCount = 0;  // To track the number of correct answers
+    $totalQuestions = count($questions);  // Total number of questions
+    $results = [];  // To store individual question results
 
-    // Check if the user has selected an answer
-    if (isset($_POST['question_' . $question['question_id']])) {
-        $user_answer = $_POST['question_' . $question['question_id']];
+    // Loop through each question and check the user's answers
+    foreach ($questions as $question) {
+        $question_id = $question['question_id'];
+        $correct_answer = $quizModel->quizCorrect($question_id)['is_correct'] + 1;
 
-        // Check if the answer is correct
-        if ($user_answer == $correct_answer['is_correct'] + 1) {
-            $message = "Correct! You got the right answer.";
+        // Check if the user has answered this question
+        if (isset($_POST['question_' . $question_id])) {
+            $user_answer = $_POST['question_' . $question_id];
+
+            if ($user_answer == $correct_answer) {
+                $results[] = [
+                    'question' => $question['text'],
+                    'user_answer' => $user_answer,
+                    'correct_answer' => $correct_answer,
+                    'is_correct' => true,
+                ];
+                $correctAnswersCount++;  // Increment if the answer is correct
+            } else {
+                $results[] = [
+                    'question' => $question['text'],
+                    'user_answer' => $user_answer,
+                    'correct_answer' => $correct_answer,
+                    'is_correct' => false,
+                ];
+            }
         } else {
-            $message = "Incorrect! The correct answer was option " . ($correct_answer['is_correct'] + 1) . ".";
+            // No answer selected
+            $results[] = [
+                'question' => $question['text'],
+                'user_answer' => null,
+                'correct_answer' => $correct_answer,
+                'is_correct' => false,
+            ];
         }
-    } else {
-        // Handle the case where no answer was selected
-        $message = "Please select an answer before submitting.";
     }
 
-    // Pass the message to the view
-    require "../App/views/tasks/submit.quiz.view.php";
-} else {
-    // If not a POST request, you might want to handle that here.
-    $message = ''; // Default message if needed.
+    // Pass data to the view
+    $score = "{$correctAnswersCount}/{$totalQuestions}";
     require "../App/views/tasks/submit.quiz.view.php";
 }
 ?>

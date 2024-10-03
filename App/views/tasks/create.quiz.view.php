@@ -109,7 +109,7 @@
 
                 <br>
 
-                <?php for ($i = 1; $i <= 1; $i++): ?>
+                <?php for ($i = 1; $i <= 15; $i++): ?>
                     <div class="Question-<?php echo $i; ?>">
                         <p>Correct Option Index: <input type="number" name="options[<?php echo $i; ?>][correct]" min="1" max="4" placeholder="1-4" required></p>
                         <p>Question <?php echo $i; ?>: <input type="text" name="questions[<?php echo $i; ?>][text]" placeholder="Enter question" required></p>

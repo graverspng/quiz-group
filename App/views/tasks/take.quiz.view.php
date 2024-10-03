@@ -97,28 +97,36 @@
         <div class="progress-container">
             <div class="progress-bar"></div> <!-- Progress bar is now full -->
         </div>
-        <div class="progress-text">1 out of 1 questions</div>
+        <div class="progress-text"><?php echo count($quizData); ?> questions</div>
 
-        <div class="question-block">
-            <h3><?php echo htmlspecialchars($question['text']); ?></h3>
-            <form action="/submit_quiz" method="post">
-                <?php for ($i = 1; $i <= 4; $i++): ?>
-                    <?php if (isset($options['option_text' . $i])): ?>
-                        <div class="option">
-                            <input type="radio" name="question_<?php echo $question['question_id']; ?>" value="<?php echo $i; ?>" required>
-                            <label><?php echo htmlspecialchars($options['option_text' . $i]); ?></label>
-                        </div>
-                    <?php endif; ?>
-                <?php endfor; ?>
-                
-                <input type="hidden" name="quiz_id" value="<?php echo $quiz_id; ?>">
-                <button type="submit" class="submit-btn">Submit Quiz</button>
-            </form>
-        </div>
+        <form action="/submit_quiz" method="post">
+            <!-- Loop through each question and display its options -->
+            <?php foreach ($quizData as $index => $data): ?>
+                <div class="question-block">
+                    <!-- Display question text -->
+                    <h3><?php echo htmlspecialchars($data['question']['text']); ?></h3>
+
+                    <!-- Display options for the current question -->
+                    <?php for ($i = 1; $i <= 4; $i++): ?>
+                        <?php if (isset($data['options']['option_text' . $i])): ?>
+                            <div class="option">
+                                <input type="radio" name="question_<?php echo $data['question']['question_id']; ?>" value="<?php echo $i; ?>" required>
+                                <label><?php echo htmlspecialchars($data['options']['option_text' . $i]); ?></label>
+                            </div>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                </div>
+            <?php endforeach; ?>
+            
+            <input type="hidden" name="quiz_id" value="<?php echo $quiz_id; ?>">
+            <button type="submit" class="submit-btn">Submit Quiz</button>
+        </form>
+        
         <form action="/">
             <button class="submit-btn">Home</button>
         </form>
     </div>
 </div>
+
 
 <?php require "../App/views/components/footer.php"; ?>

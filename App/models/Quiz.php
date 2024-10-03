@@ -45,6 +45,16 @@ class quizModel {
         ]);
         return $query->rowCount() > 0;
     }
+    public function getLastQuestionId($quizId, $questionText) {
+        $query = $this->db->dbconn->prepare("SELECT question_id FROM questions WHERE quiz_id = :quiz_id AND Text = :text ORDER BY question_id DESC LIMIT 1");
+        $query->execute([
+            ':quiz_id' => $quizId,
+            ':text' => $questionText,
+        ]);
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['question_id'] : null;
+    }
+    
 
 
     
@@ -63,24 +73,16 @@ class quizModel {
     }
 
 
-    public function quizQuestions(string $quiz_id){
+    public function getAllQuizQuestions(string $quiz_id) {
         $query = $this->db->dbconn->prepare("SELECT text, question_id FROM questions WHERE quiz_id = :quiz_id");
-        $query->execute([
-            ':quiz_id' => $quiz_id,
-
-        ]);
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        $query->execute([':quiz_id' => $quiz_id]);
+        return $query->fetchAll(PDO::FETCH_ASSOC); 
     }
 
-    public function quizOptions(string $question_id){
-        $query = $this->db->dbconn->prepare("SELECT option_text1, option_text2, option_text3, option_text4  FROM options WHERE question_id = :question_id");
-        $query->execute([
-            ':question_id' => $question_id,
-
-        ]);
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-        return $result;
+    public function quizOptions(string $question_id) {
+        $query = $this->db->dbconn->prepare("SELECT option_text1, option_text2, option_text3, option_text4 FROM options WHERE question_id = :question_id");
+        $query->execute([':question_id' => $question_id]);
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
     public function quizCorrect(string $question_id){
