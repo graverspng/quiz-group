@@ -16,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh; /* Reduced height */
+            height: 80vh;
             background-color: #121212;
         }
 
@@ -27,7 +27,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             max-width: 600px;
             width: 100%;
-            text-align: left;
         }
 
         .create-quiz-content h1 {
@@ -46,17 +45,12 @@
 
         .create-quiz-content input[type="text"], 
         .create-quiz-content input[type="number"] {
-            width: 60%; /* Adjust input width to make it smaller */
+            width: 60%;
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #333;
             background-color: #333;
             color: #e0e0e0;
-        }
-
-        .create-quiz-content input[type="text"]::placeholder,
-        .create-quiz-content input[type="number"]::placeholder {
-            color: #bbb;
         }
 
         .button-container {
@@ -72,7 +66,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            width: 45%; /* Smaller button width */
+            width: 45%;
         }
 
         .create-quiz-content button:hover {
@@ -82,7 +76,7 @@
         .create-quiz-content a {
             color: #bb86fc;
             text-decoration: none;
-            width: 45%; /* Align home button width with submit */
+            width: 45%;
             text-align: center;
             padding: 10px 20px;
             background-color: #1e1e1e;
@@ -91,38 +85,28 @@
         }
 
         .create-quiz-content a:hover {
-            text-decoration: underline;
             background-color: #333;
         }
     </style>
 </head>
 <body>
-    <br>
-    <br>
     <div class="create-quiz-container">
         <div class="create-quiz-content">
             <h1>Create Quiz</h1>
-
             <form action="/create" method="POST">
-                <p>Theme: <input type="text" name="title" placeholder="Enter quiz Theme" required></p>
-                <p>Description: <input type="text" name="description" placeholder="Enter quiz Description" required></p>
+                <p>Quiz Title: <input type="text" name="title" placeholder="Enter quiz title" required></p>
+                <p>Description: <input type="text" name="description" placeholder="Enter quiz description" required></p>
 
-                <br>
-
-                <?php for ($i = 1; $i <= 15; $i++): ?>
-                    <div class="Question-<?php echo $i; ?>">
-                        <p>Correct Option Index: <input type="number" name="options[<?php echo $i; ?>][correct]" min="1" max="4" placeholder="1-4" required></p>
-                        <p>Question <?php echo $i; ?>: <input type="text" name="questions[<?php echo $i; ?>][text]" placeholder="Enter question" required></p>
-                        <p>Option 1: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                        <p>Option 2: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                        <p>Option 3: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                        <p>Option 4: <input type="text" name="options[<?php echo $i; ?>][options][]" placeholder="Enter option" required></p>
-                    </div>
-                <?php endfor; ?>
+                <p>Correct Option Index: <input type="number" name="correct" min="1" max="4" placeholder="1-4" required></p>
+                <p>Question: <input type="text" name="question_text" placeholder="Enter question" required></p>
+                <p>Option 1: <input type="text" name="options[]" placeholder="Enter option" required></p>
+                <p>Option 2: <input type="text" name="options[]" placeholder="Enter option" required></p>
+                <p>Option 3: <input type="text" name="options[]" placeholder="Enter option" required></p>
+                <p>Option 4: <input type="text" name="options[]" placeholder="Enter option" required></p>
 
                 <div class="button-container">
-                    <button type="submit">Create Quiz</button>
-                    <a href="/">Home</a>
+                    <button type="submit">Next Question</button>
+                    <a href="/">Finish</a>
                 </div>
             </form>
         </div>
