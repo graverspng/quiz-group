@@ -1,17 +1,17 @@
 <?php
 class Validator {
 
-    // Validates if the given string is within the specified length range
+ 
     static public function string($data, $min = 0, $max = INF) {
         $data = trim($data);
 
-        return  !empty($data) && // Ensures the string is not empty
+        return  !empty($data) && 
                 is_string($data) && 
                 strlen($data) >= $min && 
                 strlen($data) <= $max;
     }
 
-    // Validates if the given value is numeric and within the specified range
+ 
     static public function number($data, $min = 0, $max = INF) {
         $data = trim($data);
 
@@ -20,7 +20,6 @@ class Validator {
                 $data <= $max;
     }
 
-    // Validates if the given date is in the correct format and is a valid date
     static public function date($date) {
         if (empty($date)) {
             return false;
@@ -33,14 +32,14 @@ class Validator {
         return  checkdate((int)$date[1], (int)$day, (int)$date[0]);
     }
 
-    // Validates if the given email is in a valid email format
+ 
     static public function email($data) {
         return  filter_var($data, FILTER_VALIDATE_EMAIL);
     }
 
-    // Validates if the given password meets the complexity requirements
+
     static public function password($data) {
-        if (empty($data)) { // Ensures that the password is not empty
+        if (empty($data)) { 
             return false;
         }
 

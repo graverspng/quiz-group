@@ -7,10 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $question = $quizModel->quizQuestions($quiz_id);
     $correct_answer = $quizModel->quizCorrect($question['question_id']);
 
-    // Initialize a message variable
     $message = '';
 
-    // Check if the user has selected an answer
+ 
     if (isset($_POST['question_' . $question['question_id']])) {
         $user_answer = $_POST['question_' . $question['question_id']];
 

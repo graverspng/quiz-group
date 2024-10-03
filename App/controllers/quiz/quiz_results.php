@@ -3,8 +3,8 @@
 require "../App/Database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION["user_id"]; // Ensure user is logged in
-    $score = $_SESSION["score"]; // Fetch score from session
+    $user_id = $_SESSION["user_id"]; 
+    $score = $_SESSION["score"]; 
 
     // Connect to the database
     $db = new Database([
@@ -14,16 +14,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'password' => 'root'
     ]);
 
-    // Insert the quiz score into the database
+    
     $query = "INSERT INTO quiz_results (user_id, score, completed_at) VALUES (:user_id, :score, NOW())";
     $stmt = $db->prepare($query);
     $stmt->execute([
         'user_id' => $user_id,
-        'score' => $score // Ensure score is saved correctly
+        'score' => $score 
     ]);
 
-    // Reset the score in the session after saving
-    unset($_SESSION['score']); // Clear score session after saving
+  
+    unset($_SESSION['score']); 
     header("Location: /leaderboard");
     exit();
 }
