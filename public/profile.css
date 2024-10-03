@@ -1,24 +1,23 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #282c34; /* Darker background color */
-    color: #ffffff; /* White text color */
+    background-color: #282c34; 
+    color: #ffffff; 
 }
 
 .create-edit-main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full height of viewport */
+    height: 100vh; 
 }
 
 .container-profile {
-    max-width: 600px; /* Limit width */
-    width: 100%;
-    background-color: #3c3f44; /* Darker box background */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Deeper shadow for a floating effect */
-    padding: 30px; /* Padding inside box */
+    max-width: 600px; 
+    background-color: #3c3f44; 
+    border-radius: 12px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    padding: 30px; 
     box-sizing: border-box;
 }
 
@@ -66,27 +65,27 @@ body {
 }
 
 .auth-button {
-    display: block; /* Make buttons block elements */
-    width: 100%; /* Full width for buttons */
-    padding: 12px; /* Padding inside button */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #00E8FF; /* Button color */
-    color: #ffffff; /* Text color */
-    cursor: pointer; /* Pointer cursor on hover */
-    margin-top: 10px; /* Space above button */
-    transition: background-color 0.3s; /* Smooth transition for button color */
+    display: block; 
+    width: 100%; 
+    padding: 12px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #00E8FF; 
+    color: #ffffff; 
+    cursor: pointer; 
+    margin-top: 10px; 
+    transition: background-color 0.3s; 
 }
 
 .auth-button:hover {
-    background-color: #00c1d4; /* Darker shade on hover */
+    background-color: #00c1d4; 
 }
 
 .invalid-data {
-    color: #ff5555; /* Red color for error messages */
-    text-align: center; /* Center error messages */
+    color: #ff5555; 
+    text-align: center; 
 }
 
 .profile-logout-box {
-    text-align: center; /* Center logout section text */
+    text-align: center; 
 }

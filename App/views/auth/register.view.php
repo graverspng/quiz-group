@@ -48,10 +48,10 @@ function togglePassword() {
     var frontText = document.querySelector(".btn-class-name .front");
     if (passwordField.type === "password") {
         passwordField.type = "text";
-        frontText.textContent = "Hide"; // Change button text to "Hide" when password is shown
+        frontText.textContent = "Hide";
     } else {
         passwordField.type = "password";
-        frontText.textContent = "Show"; // Change back to "Show" when password is hidden
+        frontText.textContent = "Show"; 
     }
 }
 </script>
