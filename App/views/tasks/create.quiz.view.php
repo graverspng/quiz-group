@@ -6,28 +6,31 @@
     <title>Create Quiz</title>
     <?php require "../App/views/components/head.php"; ?>
     <style>
+
 @keyframes backgroundMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 body {
-    margin: 0;
-    background: linear-gradient(270deg, #000000, #808080, #D8BFD8, #808080, #000000); /* Gradient with specified colors */
-    background-size: 300% 100%; /* Adjust the size for smoother movement */
-    animation: backgroundMove 10s ease infinite; /* Animation to move background */
-    color: #e0e0e0;
-    font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #301934, black, purple); /* Adjusted colors and direction */
+  background-size: 300% 100%; /* Adjust the size for smoother movement */
+  animation: backgroundMove 10s ease infinite; /* Animation to move background */
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+
 .create-quiz-container {
+    margin-top:100px;
+    margin-bottom:50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +40,7 @@ body {
 .create-quiz-content {
     background-color: #1e1e1e; /* Keep the dark background for the content area */
     padding: 20px;
+    color:white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
     max-width: 600px;

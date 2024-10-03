@@ -14,30 +14,24 @@ $users = $leaderboard->getGlobalLeaderboard();
     
 </head>
 <style>
-    @keyframes backgroundMove {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+@keyframes backgroundMove {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 body {
-    background: linear-gradient(270deg, #000000, #808080, #D8BFD8, #808080, #000000); /* Gradient with specified colors */
-    background-size: 300% 100%; /* Adjust the size for smoother movement */
-    animation: backgroundMove 10s ease infinite; /* Animation to move background */
-    color: #fff; /* White text color */
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Stack button and leaderboard vertically */
-    height: 100vh;
-    margin: 0;
+  background: linear-gradient(135deg, #301934, black, purple); /* Adjusted colors and direction */
+  background-size: 300% 100%; /* Adjust the size for smoother movement */
+  animation: backgroundMove 10s ease infinite; /* Animation to move background */
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 .leaderboard {

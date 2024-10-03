@@ -42,6 +42,7 @@
     background-color: #121212;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom:700px
   }
 
   .quizzes-header-container {

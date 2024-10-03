@@ -2,18 +2,33 @@
 
 
 <style>
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-        font-family: Arial, sans-serif;
-    }
+    @keyframes backgroundMove {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(135deg, #301934, black, purple); /* Adjusted colors and direction */
+  background-size: 300% 100%; /* Adjust the size for smoother movement */
+  animation: backgroundMove 10s ease infinite; /* Animation to move background */
+  margin: 0;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+}
 
     .profile-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #121212;
+        
     }
 
     .profile-content {

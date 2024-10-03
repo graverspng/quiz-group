@@ -31,7 +31,7 @@ nav a {
 }
 
 body {
-  background: linear-gradient(270deg, #000000, #808080, #D8BFD8, #808080, #000000); /* Gradient with specified colors */
+  background: linear-gradient(135deg, #301934, black, purple); /* Adjusted colors and direction */
   background-size: 300% 100%; /* Adjust the size for smoother movement */
   animation: backgroundMove 10s ease infinite; /* Animation to move background */
   margin: 0;
