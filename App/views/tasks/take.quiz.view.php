@@ -1,93 +1,108 @@
 <?php require "../App/views/components/head.php"; ?>
 
 <style>
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-        font-family: Arial, sans-serif;
+   @keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
     }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
-    .quiz-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #121212;
-    }
+body {
+    margin: 0;
+    background: linear-gradient(270deg, #000000, #808080, #D8BFD8, #808080, #000000); /* Gradient with specified colors */
+    background-size: 300% 100%; /* Adjust the size for smoother movement */
+    animation: backgroundMove 10s ease infinite; /* Animation to move background */
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
 
-    .quiz-content {
-        background-color: #1e1e1e;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-        max-width: 500px;
-        width: 100%;
-        text-align: center;
-    }
+.quiz-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-    .quiz-content h1 {
-        margin-bottom: 20px;
-        font-size: 24px;
-        color: #bb86fc;
-    }
+.quiz-content {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
 
-    .progress-container {
-        width: 100%;
-        background-color: #333;
-        border-radius: 5px;
-        margin-bottom: 15px;
-    }
+.quiz-content h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #bb86fc;
+}
 
-    .progress-bar {
-        width: 100%; /* Set to 100% for full progress */
-        height: 10px;
-        background-color: #bb86fc;
-        border-radius: 5px;
-    }
+.progress-container {
+    width: 100%;
+    background-color: #333;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
 
-    .progress-text {
-        margin-bottom: 15px;
-        font-size: 14px;
-        color: #e0e0e0;
-    }
+.progress-bar {
+    width: 100%; /* Set to 100% for full progress */
+    height: 10px;
+    background-color: #bb86fc;
+    border-radius: 5px;
+}
 
-    .question-block {
-        margin-bottom: 20px;
-    }
+.progress-text {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #e0e0e0;
+}
 
-    .question-block h3 {
-        margin-bottom: 10px;
-        font-size: 18px;
-        color: #e0e0e0;
-    }
+.question-block {
+    margin-bottom: 20px;
+}
 
-    .option {
-        margin-bottom: 10px;
-        text-align: left;
-    }
+.question-block h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #e0e0e0;
+}
 
-    .option input[type="radio"] {
-        margin-right: 10px;
-    }
+.option {
+    margin-bottom: 10px;
+    text-align: left;
+}
 
-    .option label {
-        font-size: 16px;
-        color: #e0e0e0;
-    }
+.option input[type="radio"] {
+    margin-right: 10px;
+}
 
-    .submit-btn {
-        padding: 10px 20px;
-        background-color: #bb86fc;
-        color: #121212;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
+.option label {
+    font-size: 16px;
+    color: #e0e0e0;
+}
 
-    .submit-btn:hover {
-        background-color: #9a67ea;
-    }
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #bb86fc;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #9a67ea;
+}
+
 </style>
 
 <div class="quiz-container">

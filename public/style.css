@@ -1,28 +1,39 @@
-header {
-    background-color: #0A0908;
-    padding: 25px 0;
+@keyframes backgroundMove {
+  0% {
+      background-position: 0% 50%;
   }
-  nav {
-    margin: auto;
-    text-align: center;
+  50% {
+      background-position: 100% 50%;
   }
-  
-  nav a {
-    color: #fff;
-    font-size: 20px;
-    text-decoration: none;
-    padding: 20px 50px; 
-    margin: 0 50px;
-    border-radius: 5px;
-    transition: background-color 0.5s ease;
-    margin: 0;
+  100% {
+      background-position: 0% 50%;
   }
-  
-  body {
-    background-color: #121212;
-    background-size: 300% 200%;
-    animation: backgroundMove 10s ease infinite;
-    margin: 0;
-    font-family: Arial, sans-serif;
 }
 
+header {
+  background-color: #0A0908;
+  padding: 25px 0;
+}
+
+nav {
+  margin: auto;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 20px 50px; 
+  margin: 0 50px;
+  border-radius: 5px;
+  transition: background-color 0.5s ease;
+}
+
+body {
+  background: linear-gradient(270deg, #000000, #808080, #D8BFD8, #808080, #000000); /* Gradient with specified colors */
+  background-size: 300% 100%; /* Adjust the size for smoother movement */
+  animation: backgroundMove 10s ease infinite; /* Animation to move background */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
