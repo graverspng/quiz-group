@@ -105,3 +105,43 @@ a:hover {
     }
     
 }
+.btn-class-name {
+    background-color: #00E8FF; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    padding: 5px 10px; /* Adjust padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem; /* Font size adjustment */
+    transition: background-color 0.3s;
+}
+
+.btn-class-name:hover {
+    background-color: #0099CC; /* Darker blue on hover */
+}
+
+.auth-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-right: 70px; /* Space for the button */
+}
+
+  
+  .btn-class-name:active .front {
+    transform: translateY(0%);
+  }
+  
+  
+  .btn-class-name:active .front {
+    transform: translateY(0%);
+    box-shadow: 0 0;
+  }
+  
