@@ -1,4 +1,5 @@
 <?php
+auth();
 require "../App/Core/Database.php"; // Include your Database class
 
 class Leaderboard {

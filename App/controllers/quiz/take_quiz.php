@@ -1,4 +1,5 @@
 <?php
+auth();
 require_once "../App/Models/Quiz.php";
 $quizModel = new quizModel();
 
