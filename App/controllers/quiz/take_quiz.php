@@ -23,6 +23,6 @@ foreach ($questions as $question) {
     ];
 }
 
-
+$title = "Quiz";
 require "../App/views/tasks/take.quiz.view.php";
 ?>
