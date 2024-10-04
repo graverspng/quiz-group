@@ -1,5 +1,5 @@
 <?php 
-auth(); // Ensure user authentication
+auth(); 
 
 require "../App/Core/Database.php";
 require "../App/Core/Validator.php";

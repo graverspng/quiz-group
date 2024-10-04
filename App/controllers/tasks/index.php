@@ -1,6 +1,6 @@
 <?php
 
-// Check if the user is authenticated
+
 auth();
 
 $title = "Home Page";

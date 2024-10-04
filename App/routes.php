@@ -11,5 +11,7 @@ return [
     "/quiz_template2" => "../App/controllers/quiz/quiz_template2.php",
     "/take_quiz" => "../App/controllers/quiz/take_quiz.php",
     "/submit_quiz" => "../App/controllers/quiz/submit_quiz.php",
+    "/history" =>"../App/controllers/user_history.php",
+
 ];
 ?>

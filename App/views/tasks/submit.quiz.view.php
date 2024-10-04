@@ -5,10 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Results</title>
     <style>
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         body {
-            background-color: #121212;
-            color: #e0e0e0;
+            background: linear-gradient(135deg, #301934, black, purple);
+            background-size: 300% 100%;
+            animation: backgroundMove 10s ease infinite;
+            margin: 0;
             font-family: Arial, sans-serif;
+            color: #e0e0e0;
         }
 
         .quiz-container {
@@ -16,7 +31,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #121212;
         }
 
         .quiz-content {
@@ -33,15 +47,6 @@
             margin-bottom: 20px;
             font-size: 24px;
             color: #bb86fc;
-        }
-
-        .alert {
-            padding: 15px;
-            background-color: #333;
-            color: #e0e0e0;
-            border: 1px solid #444;
-            border-radius: 5px;
-            margin-bottom: 20px;
         }
 
         .result-item {
@@ -90,6 +95,28 @@
         .button:hover {
             background-color: #9a67ea;
         }
+
+        .nav-button {
+            padding: 10px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #9a67ea;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -100,31 +127,74 @@
 
         <!-- Display the overall score -->
         <div class="score">
-            Your Score: <?php echo htmlspecialchars($score); ?>
+            Your Score: <?php echo $score; ?> out of <?php echo $totalQuestions; ?>
         </div>
 
-        <!-- Loop through the results and show each question's outcome -->
-        <?php foreach ($results as $result): ?>
-            <div class="result-item">
-                <h3><?php echo htmlspecialchars($result['question']); ?></h3>
-                <p>Your answer: 
-                    <?php if ($result['user_answer'] !== null): ?>
-                        <span><?php echo htmlspecialchars($result['user_answer']); ?></span>
-                    <?php else: ?>
-                        <span>No answer selected</span>
-                    <?php endif; ?>
-                </p>
-                <p>Correct answer: <span><?php echo htmlspecialchars($result['correct_answer']); ?></span></p>
-                <p class="<?php echo $result['is_correct'] ? 'correct' : 'incorrect'; ?>">
-                    <?php echo $result['is_correct'] ? 'Correct!' : 'Incorrect!'; ?>
-                </p>
-            </div>
-        <?php endforeach; ?>
+        <!-- Display one question at a time -->
+        <div id="result-display" class="result-item">
+            <h3 id="question-text"></h3>
+            <p>Your answer: <span id="user-answer"></span></p>
+            <p>Correct answer: <span id="correct-answer"></span></p>
+            <p id="result-message"></p>
+        </div>
+
+        <!-- Question number display -->
+        <div id="question-number" style="margin: 10px 0;"></div>
+
+        <!-- Navigation buttons -->
+        <div class="nav-buttons">
+            <button id="prev-btn" class="nav-button" disabled>Previous</button>
+            <button id="next-btn" class="nav-button" disabled>Next</button>
+        </div>
 
         <!-- Button to navigate back to the main route -->
         <a href="/" class="button">Go to Main Page</a>
     </div>
 </div>
+
+<script>
+    const results = <?php echo json_encode($results); ?>; // Pass PHP results to JavaScript
+    let currentIndex = 0; // Track the current question index
+
+    // Function to display the current question
+    function displayQuestion(index) {
+        const resultDisplay = document.getElementById('result-display');
+        const questionText = document.getElementById('question-text');
+        const userAnswer = document.getElementById('user-answer');
+        const correctAnswer = document.getElementById('correct-answer');
+        const resultMessage = document.getElementById('result-message');
+        const questionNumber = document.getElementById('question-number');
+
+        const result = results[index];
+        questionText.textContent = result.question;
+        userAnswer.textContent = result.user_answer !== null ? result.user_answer : "No answer selected";
+        correctAnswer.textContent = result.correct_answer;
+        resultMessage.textContent = result.is_correct ? "Correct!" : "Incorrect!";
+        resultMessage.className = result.is_correct ? "correct" : "incorrect";
+
+        questionNumber.textContent = `Question ${index + 1} of ${results.length}`; // Display current question number
+        document.getElementById('prev-btn').disabled = (index === 0); // Disable if on the first question
+        document.getElementById('next-btn').disabled = (index === results.length - 1); // Disable if on the last question
+    }
+
+    // Show the first question when the page loads
+    displayQuestion(currentIndex);
+
+    // Navigation button event listeners
+    document.getElementById('prev-btn').addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            displayQuestion(currentIndex);
+        }
+    });
+
+    document.getElementById('next-btn').addEventListener('click', function() {
+        if (currentIndex < results.length - 1) {
+            currentIndex++;
+            displayQuestion(currentIndex);
+        }
+    });
+</script>
 
 </body>
 </html>

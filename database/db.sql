@@ -62,3 +62,21 @@ COLLATE='utf8mb4_0900_ai_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=4
 ;
+
+SELECT u.username, COALESCE(SUM(qr.score), 0) AS total_score 
+FROM users u
+LEFT JOIN quiz_results qr ON u.user_id = qr.user_id
+GROUP BY u.user_id
+ORDER BY total_score DESC
+LIMIT 15;
+
+CREATE TABLE `user_history` (
+    `history_id` INT(10) NOT NULL AUTO_INCREMENT,
+    `user_id` INT(10) NOT NULL,
+    `action` VARCHAR(255) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`history_id`),
+    FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
+);
+
+

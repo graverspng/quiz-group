@@ -4,18 +4,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $quizModel = new quizModel();
 
     $quiz_id = $_POST['quiz_id'];
-    $questions = $quizModel->getAllQuizQuestions($quiz_id);  // Fetch all quiz questions
+    $questions = $quizModel->getAllQuizQuestions($quiz_id);  
 
-    $correctAnswersCount = 0;  // To track the number of correct answers
-    $totalQuestions = count($questions);  // Total number of questions
-    $results = [];  // To store individual question results
+    $correctAnswersCount = 0;  
+    $totalQuestions = count($questions);  
+    $results = [];  
 
-    // Loop through each question and check the user's answers
+   
     foreach ($questions as $question) {
         $question_id = $question['question_id'];
         $correct_answer = $quizModel->quizCorrect($question_id)['is_correct'] + 1;
 
-        // Check if the user has answered this question
         if (isset($_POST['question_' . $question_id])) {
             $user_answer = $_POST['question_' . $question_id];
 
@@ -26,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'correct_answer' => $correct_answer,
                     'is_correct' => true,
                 ];
-                $correctAnswersCount++;  // Increment if the answer is correct
+                $correctAnswersCount++;  
             } else {
                 $results[] = [
                     'question' => $question['text'],
@@ -36,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ];
             }
         } else {
-            // No answer selected
+            
             $results[] = [
                 'question' => $question['text'],
                 'user_answer' => null,
@@ -46,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Pass data to the view
+    
     $score = "{$correctAnswersCount}/{$totalQuestions}";
     require "../App/views/tasks/submit.quiz.view.php";
 }
